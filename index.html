@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+
+    <head> 
+        <title>Установить</title>
+        <meta name="description" content="Установить"> 
+        <meta charset="utf-8"/> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <link rel="shortcut icon" href="favicon.png" type="image/png">
+    </head>
+    
+    <style>
+        body {
+            background: url(src/bg.jpg);
+        }
+        .fig {
+            display: block;
+            text-align: center;
+            margin-top: 45%;
+            color: aliceblue;
+            font-family: sans-serif;
+        }
+    </style>
+    
+    <body> 
+        <div class="fig">
+            <img src="src/biglogo.gif" alt="logo">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h5 id="timer">Установка, осталось </h5>
+            <p id="open" style="visibility:hidden;"><a href="https://sergejkovbas82.github.io/offer.html"><img src="src/btn.png" border="0" alt="btn"></a></p>
+        </div>
+        <script>
+            
+            var count = 0;
+            var ticks = 7;
+            
+            var timer = document.querySelector("#timer");
+            var open = document.querySelector("#open");
+            
+            timer.innerHTML = 'Установка, осталось ' + (ticks - count) + ' секунд';
+            setTimeout(tick, 1000);
+            
+            function tick() {
+                if(count > ticks) {
+                    timer.setAttribute("style", "visibility: hidden;");
+                    open.setAttribute("style", "visibility: visible;");
+                }
+                else {
+                    timer.innerHTML = 'Установка, осталось ' + (ticks - count) + ' секунд';
+                    count ++;
+                    setTimeout(tick, 1000);
+                }
+            }
+            
+        </script> 
+    </body>
+</html>
